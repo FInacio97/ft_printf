@@ -6,12 +6,19 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:08:20 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/02 19:51:01 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/05/10 03:55:54 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "ft_printf.h"
 
 int	ft_printf(const char *str, ...)
 {
+    
+}
+
+
+int main()
+{
+
 }

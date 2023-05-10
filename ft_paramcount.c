@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_paramcount.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 18:56:40 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/03 03:21:44 by fda-estr         ###   ########.fr       */
+/*   Created: 2023/05/03 03:12:46 by fda-estr          #+#    #+#             */
+/*   Updated: 2023/05/10 01:45:15 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "printf.h"
 
-#include <stdarg.h>
-#include <stdlib.h>
-#include <unistd.h>
+//O que é que acontece se usarmos %%%%...
 
-int	ft_printf(const char *str, ...);
-int	ft_paramcount (char *s);
+int	ft_paramcount (char *s)
+{
+	int	nparam;
 
-#endif
+	nparam = 0;
+	while (*s)
+	{
+		if (*s++ == '%')
+		{
+			if (*s++ != '%')
+				nparam++;
+		}
+		s++;
+	}
+	return (nparam);
+}
+
+#include <stdio.h>
+
+int main()
+{
+	printf("%d\n", ft_paramcount("Ola %% o meu you "));
+	printf("%%% roiffo");
+}
