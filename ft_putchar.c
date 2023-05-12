@@ -6,13 +6,14 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 02:55:46 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/10 03:55:57 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:03:17 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, int *len)
 {
 	write(1, &c, 1);
+	*len += 1;
 }
