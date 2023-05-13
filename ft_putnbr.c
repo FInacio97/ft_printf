@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 18:56:40 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/13 20:15:51 by fda-estr         ###   ########.fr       */
+/*   Created: 2023/05/13 19:59:06 by fda-estr          #+#    #+#             */
+/*   Updated: 2023/05/13 20:46:39 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-
-int	ft_printf(const char *str, ...);
-void	ft_param(va_list *arg, char type, int *len);
-void	ft_putchar(char c, int *len);
-void	ft_putstr(char *str, int *len);
-void	ft_putnbr(long int nbr, int *len);
-
-#endif
+void	ft_putnbr(long int nbr, int *len)
+{
+	if (nbr < 0)
+	{
+		ft_putchar('-', len);
+		nbr *= -1;
+	}
+	if (nbr > 9)
+	{
+		ft_putnbr(nbr / 10, len);
+		ft_putnbr(nbr % 10, len);
+	}
+	if (nbr < 10)
+		ft_putchar(nbr + 48, len);
+}
