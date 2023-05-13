@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:56:40 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/12 16:01:37 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/05/13 19:20:52 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 #include <stdio.h>
 
 int	ft_printf(const char *str, ...);
-int	ft_paramcount (char *s);
+void	ft_param(va_list *arg, char type, int *len);
 void	ft_putchar(char c, int *len);
+void	ft_putstr(char *str, int *len);
 
 #endif
