@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:38:22 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/13 20:58:57 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/05/14 03:33:13 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,9 @@ void	ft_param(va_list *arg, char type, int *len)
 		ft_putnbr(va_arg(*arg, int), len);
 	if (type == 'u')
 		ft_putnbr(va_arg(*arg, size_t), len);
+	if (type == 'x')
+		ft_putnbrhexa(va_arg(*arg, int), len, 87);
+	if (type == 'X')
+		ft_putnbrhexa(va_arg(*arg, int), len, 55);
+	
 }

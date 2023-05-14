@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbrhexa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 18:56:40 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/14 02:19:11 by fda-estr         ###   ########.fr       */
+/*   Created: 2023/05/14 01:51:11 by fda-estr          #+#    #+#             */
+/*   Updated: 2023/05/14 03:33:39 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-
-int 	ft_printf(const char *str, ...);
-void	ft_param(va_list *arg, char type, int *len);
-void	ft_putchar(char c, int *len);
-void	ft_putstr(char *str, int *len);
-void	ft_putnbr(long int nbr, int *len);
-void	ft_putnbrhexa(long int nbr, int *len, int lowup);
-
-#endif
+void	ft_putnbrhexa(long int nbr, int *len, int lowup)
+{
+	if (nbr < 0)
+	{
+		ft_putchar('-', len);
+		nbr *= -1;
+	}
+	if (nbr > 15)
+	{
+		ft_putnbrhexa(nbr / 16, len, lowup);
+		ft_putnbrhexa(nbr % 16, len, lowup);
+	}
+	if (nbr < 16)
+	{
+		if (nbr > 9)
+			ft_putchar(nbr + lowup, len);
+		else
+			ft_putchar(nbr + 48, len);
+	}
+}
