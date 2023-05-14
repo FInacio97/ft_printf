@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 19:59:06 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/13 20:46:39 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/05/14 19:13:18 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	ft_putnbr(long int nbr, int *len)
 		ft_putnbr(nbr / 10, len);
 		ft_putnbr(nbr % 10, len);
 	}
-	if (nbr < 10)
+	else
 		ft_putchar(nbr + 48, len);
 }

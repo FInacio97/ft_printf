@@ -1,39 +1,30 @@
-#################################################################################################
-###**										Makefile										**###
-#####***************************************************************************************#####
-
-###-------------------------------------------------------------------------------------------###
-###**								Variables and dependencies								**###
-#####---------------------------------------------------------------------------------------#####
 NAME = libftprintf.a
 
-SRCS = 	ft_param.c ft_printf.c ft_putchar.c\
-ft_putnbr.c ft_putnbrhexa.c ft_putstr.c	
-		
-OBJS :=$(SRCS:.c=.o)
+CC = cc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Wextra -Werror
 
-###+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++###
-###**								PHONY targets and rules									**###
-#####+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#####
+FILE = ft_param.c ft_printf.c ft_putchar.c\
+		ft_putnbr.c ft_putnbrhexa.c ft_putstr.c\
+		ft_putunsigned.c
 
-.PHONY: all clean fclean re
+FILE_O = $(FILE:.c=.o)
 
-all: $(NAME)
+RMOV = rm -f
 
-$(NAME) : $(OBJS)
-	ar -crs $@ $^
+STAT = ar -rcs
 
-%.o : %.c
-	cc $(CFLAGS) -c $< -o $@
+$(NAME):	$(FILE_O)
+			$(STAT) $(NAME) $(FILE_O)
+
+all:	$(NAME)
 
 clean:
-	rm -f $(OBJS)
-fclean: clean
-	rm -f $(NAME)
+	$(RMOV) $(FILE_O)
+	
+fclean:	clean
+		$(RMOV) $(NAME)
+		
 re: fclean all
 
-#####***************************************************************************************#####
-###**										Thank you!										**###
-#################################################################################################
+.PHONY: all  clean fclean re
