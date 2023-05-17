@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 01:51:11 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/14 19:47:02 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/05/17 04:27:08 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,3 @@ void	ft_putnbrhexa(unsigned int nbr, int *len, int lowup)
 			ft_putchar(nbr + 48, len);
 	}
 }
-

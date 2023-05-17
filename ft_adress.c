@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*   ft_adress.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 19:19:29 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/17 04:27:24 by fda-estr         ###   ########.fr       */
+/*   Created: 2023/05/14 20:06:18 by fda-estr          #+#    #+#             */
+/*   Updated: 2023/05/17 04:26:22 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putunsigned(unsigned int nbr, int *len)
+void	ft_putaddress(unsigned long int ad, int *len)
 {
-	if (nbr > 9)
+	if (ad > 15)
 	{
-		ft_putunsigned(nbr / 10, len);
-		ft_putunsigned(nbr % 10, len);
+		ft_putaddress((ad / 16), len);
+		ft_putaddress((ad % 16), len);
 	}
+	else if (ad < 16)
+	{
+		ft_putchar(HEXA_LOW[ad], len);
+	}
+}
+
+void	ft_adress(unsigned long int ad, int *len)
+{
+	if (!ad)
+		ft_putstr("(nil)", len);
 	else
-		ft_putchar(nbr + 48, len);
+	{
+		ft_putstr("0x", len);
+		ft_putaddress(ad, len);
+	}
 }

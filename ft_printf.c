@@ -6,7 +6,7 @@
 /*   By: fda-estr <fda-estr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:08:20 by fda-estr          #+#    #+#             */
-/*   Updated: 2023/05/14 19:45:05 by fda-estr         ###   ########.fr       */
+/*   Updated: 2023/05/17 04:29:24 by fda-estr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_printf(const char *str, ...)
 {
-	int len;
-	va_list arg;
+	int		len;
+	va_list	arg;
 
 	len = 0;
 	va_start(arg, str);
-	while(*str)
+	while (*str)
 	{
-		if(*str == '%')
+		if (*str == '%')
 		{	
 			str++;
 			ft_param(&arg, *str, &len);
@@ -29,23 +29,6 @@ int	ft_printf(const char *str, ...)
 		else
 			ft_putchar(*str, &len);
 		str++;
-		
 	}
 	return (len);
 }
-
-// int main()
-// {
-// 	char c[] = "Francisco";
-// 	printf("%p", c);
-// 	// printf("%d\n", ft_printf("%%Francisco %s d%c Estrel%c Ina%cio%% %d %i %u %x %X\n", "Miguel", 'a', 'a', 'c', 1234, -1234, 123, 10 ,10));
-// 	// printf("\n\n");
-// 	// printf("%d\n", printf("%%Francisco %s d%c Estrel%c Ina%cio%% %d %i %u %x %X\n", "Miguel", 'a', 'a', 'c', 1234, -1234, 123, 10, 10));
-// }
-
-// #include <limits.h>
-
-// int main()
-// {
-// 	printf("%u\n", LONG_MAX);
-// }
